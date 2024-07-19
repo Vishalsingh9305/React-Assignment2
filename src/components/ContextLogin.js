@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
+import Welcome from './Welcome'; // Import the Welcome component
 
 const ContextLogin = () => {
   const { setUsername } = useContext(UserContext);
   const [input, setInput] = useState('');
+  const [loggedInUser, setLoggedInUser] = useState(null); // State to track logged-in user
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setUsername(input);
+    setLoggedInUser(input); // Set the logged-in user
   };
 
   return (
@@ -22,6 +25,7 @@ const ContextLogin = () => {
         />
         <button type="submit">Login</button>
       </form>
+      {loggedInUser && <Welcome username={loggedInUser} />} {/* Display welcome message if logged in */}
     </div>
   );
 };
