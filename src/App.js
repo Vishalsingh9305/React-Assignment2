@@ -53,7 +53,7 @@ function App() {
         <section>
           
           <ContextLogin />
-          <Welcome username={username}/>
+          
         </section>
       </UserProvider>
 
